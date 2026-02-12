@@ -1,3 +1,9 @@
+<script>
+    export let data;
+
+    console.log("data", data);
+</script>
+
 <div class="grid-container py-20">
     <div class="title-content flex flex-col items-center gap-4">
         <h1 class='text-center text-3xl font-bold'>Japan Gallery grid</h1>
