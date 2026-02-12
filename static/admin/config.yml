@@ -12,6 +12,24 @@ collections:
   - name: posts
     label: Posts
     folder: src/content/posts
+    format: json
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Body, name: body, widget: markdown }
+      - { label: Body Content, name: body-content, widget: markdown }
+  - name: images
+    label: Gallery Images
+    folder: src/content/image-gallery
+    format: json
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: Image, name: image, widget: image, multiple: true, max: 5 }
+      - { label: Location, name: location, widget: string }
+      - {
+          label: Upload date,
+          name: date,
+          widget: datetime,
+          picker_utc: true,
+          default: "{{now}}",
+        }
+      - { label: Tags, name: tags, widget: list }
