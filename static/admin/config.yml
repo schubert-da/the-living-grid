@@ -3,6 +3,7 @@
 backend:
   name: github
   repo: schubert-da/the-living-grid
+  skip_ci: true
 
 media_folder: /static/media
 public_folder: /media
