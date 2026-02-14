@@ -4,13 +4,21 @@ export async function load() {
         { eager: true }
     );
 
-    const posts = Object.entries(modules).map(([path, module]) => {
+    let images = [];
+    const imageResponse = Object.entries(modules).map(([path, module]) => {
         const slug = path.split('/').pop().replace('.json', '');
-        return {
-            slug,
-            ...module.default
-        };
+        const content = module.default;
+
+        if (content.image?.length > 0) {
+            content.image.forEach(imagePath => {
+                const currentImage = { slug, ...content, image: imagePath };
+                images.push(currentImage);
+            })
+        }
+        else {
+            images.push({ slug, ...content });
+        }
     });
 
-    return { posts };
+    return { images };
 }
