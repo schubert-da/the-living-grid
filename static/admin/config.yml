@@ -22,9 +22,14 @@ collections:
     format: json
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: string }
+      - {
+          label: Description,
+          name: description,
+          widget: string,
+          required: false,
+        }
       - { label: Image, name: image, widget: image, multiple: true, max: 5 }
-      - { label: Location, name: location, widget: string }
+      - { label: Location, name: location, widget: string, required: false }
       - {
           label: Upload date,
           name: date,
