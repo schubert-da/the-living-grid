@@ -14,9 +14,11 @@ media_libraries:
       transformations:
         raster_image: # original format
           format: webp # new format, only `webp` is supported
-          quality: 85 # default: 85
-          width: 500 # default: original size
+          quality: 80 # default: 85
+          width: 435 # default: original size
           height: 500 # default: original size
+        svg:
+          optimize: true
 
 collections:
   - name: posts
