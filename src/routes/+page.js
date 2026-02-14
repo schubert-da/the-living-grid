@@ -1,15 +1,14 @@
 export async function load() {
     const modules = import.meta.glob(
-        '/src/content/posts/*.md',
+        '/src/content/image-gallery/*.json',
         { eager: true }
     );
 
     const posts = Object.entries(modules).map(([path, module]) => {
-        const slug = path.split('/').pop().replace('.md', '');
-
+        const slug = path.split('/').pop().replace('.json', '');
         return {
             slug,
-            ...module.metadata
+            ...module.default
         };
     });
 
