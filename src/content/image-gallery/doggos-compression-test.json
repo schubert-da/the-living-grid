@@ -1,0 +1,12 @@
+{
+  "title": "Doggos - compression test",
+  "description": "testing a new compression here",
+  "image": [
+    "/media/IMG_20220906_224312.jpg"
+  ],
+  "location": "Goa",
+  "date": "2026-02-14T06:32:00.000Z",
+  "tags": [
+    "dogs"
+  ]
+}
