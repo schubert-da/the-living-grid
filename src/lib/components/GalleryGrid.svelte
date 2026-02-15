@@ -1,32 +1,17 @@
 <script>
+	import DaySection from "./DaySection.svelte";
+
     export let images = [];
-    const aspectRatio = 435 / 500; 
+
+    console.log('GalleryGrid images:', images);
+
+    $: uploadeDates = images.length > 0 ? [...new Set(images.map(image => image.date.split("T")[0]))] : null;
+    $: console.log('Unique upload dates:', uploadeDates);
 </script>
 
 <div class="grid-container w-full flex justify-center">
-    <div class="grid max-auto max-w-250 gap-0.5">
-        {#each [...images, ...images] as image}
-            <div class="grid-item" style="aspect-ratio: {aspectRatio}">
-                <img  src={image.image} alt={image.title || image.description} class="w-full h-full object-cover" />
-            </div>
-        {/each}
-    </div>
+    {#each uploadeDates as date}
+        {@const currentImages = images.filter(image => image.date.split("T")[0] === date)}
+        <DaySection images={currentImages} />
+    {/each}
 </div>
-
-<style>
-    .grid {
-        grid-template-columns: repeat(5, min(200px, 16vw));
-    }
-
-    @media (max-width: 768px) {
-        .grid {
-            grid-template-columns: repeat(4, min(200px, 21vw));
-        }
-    }
-    
-    @media (max-width: 500px) {
-        .grid {
-            grid-template-columns: repeat(3, min(200px, 30vw));
-        }
-    }
-</style>
