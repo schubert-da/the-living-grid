@@ -15,6 +15,18 @@
 
 <style>
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(5, min(200px, 16vw));
+    }
+
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: repeat(4, min(200px, 21vw));
+        }
+    }
+    
+    @media (max-width: 500px) {
+        .grid {
+            grid-template-columns: repeat(3, min(200px, 30vw));
+        }
     }
 </style>
