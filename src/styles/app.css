@@ -16,15 +16,17 @@ html {
 }
 
 :root {
+     /* Padding will scale between 12px at 600px and 32px at 1200px. */
+    --body-padding: clamp(0.75rem, -0.5rem + 3.333vw, 2rem);
+}
+
+@theme {
     --color-palette-red: #A23723;
     --color-palette-blue: #1B5F93;
-    --color-palette-yellow: #DDB343;
+    --color-palette-yellow: #d8b554;
     --color-palette-orange: #EF9042;
     --color-palette-cream: #D8BC7F;
     --color-palette-offwhite: #CBD0C9;
-
-     /* Padding will scale between 12px at 600px and 32px at 1200px. */
-    --body-padding: clamp(0.75rem, -0.5rem + 3.333vw, 2rem);
 }
 
 body {
@@ -37,7 +39,7 @@ body {
     font-size: 20px;
     font-family: 'Geist Mono', monospace;
     line-height: 1.25;
-    background-color: rgb(196, 207, 207);
+    background-color: #a5a6bb;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -1,4 +1,6 @@
 <script>
+    import { chosenTag } from "$lib/utils/stores.js";
+
     export let images = [];
     
     $: currentDate = images.length > 0 ? new Date(images[0].date) : null;
@@ -53,6 +55,7 @@
         {#each [...images, ...images] as image}
             <div class="w-full" style="aspect-ratio: {aspectRatio}">
                 <img
+                    class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
                     src={image.image}
                     alt={image.title || image.description}
                     class="w-full h-full object-cover"
@@ -82,5 +85,10 @@
         .grid {
             grid-template-columns: repeat(3, minmax(0, 1fr))
         }
+    }
+
+    img.not-selected {
+        filter: grayscale(100%) opacity(50%);
+        transition: filter 0.3s ease;
     }
 </style>
