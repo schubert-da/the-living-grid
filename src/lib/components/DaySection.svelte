@@ -12,34 +12,55 @@
 </script>
 
 <section class="section p-2 sm:p-4 w-fit flex flex-col items-center gap-4 border border-neutral-400 rounded-lg">
-    <div class="title-content w-full items-center justify-start flex flex-row gap-1">
-        <div class="date">
-            <h2 class='text-[#555] text-[72px]'>{formattedDate.day}</h2>
+    <div class="title-content w-full items-center justify-between flex flex-row gap-1 border-b-3 border-b-neutral-500 pb-2">
+        <div class="text-content items-center justify-start flex flex-row gap-1">
+            <div class="date">
+                <h2 class='text-[#555] text-[72px]'>{formattedDate.day}</h2>
+            </div>
+
+            <div class="details">
+                <h3 class='uppercase text-[#555] text-[28px] font-semibold'>{formattedDate.month}</h3>
+                <h3 class='uppercase text-[#686868] text-[28px]'>{formattedDate.weekday}</h3>
+            </div>
         </div>
-        <div class="details">
-            <h3 class='uppercase text-[#555] text-[28px] font-semibold'>{formattedDate.month}</h3>
-            <h3 class='uppercase text-[#686868] text-[28px]'>{formattedDate.weekday}</h3>
-        </div>
+
+        {#if images.length > 0}
+            {@const firstImage = images[Math.floor(Math.random() * images.length)]}
+            {@const secondImage = images[Math.floor(Math.random() * images.length)]}
+            <div class="random-images h-full flex flex-row gap-1.5">
+                <div class="h-full max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
+                        <img
+                            src={firstImage?.image}
+                            alt={firstImage?.title || firstImage?.description}
+                            class="h-full w-full object-cover"
+                        />
+                </div>
+
+                {#if firstImage !== secondImage }
+                    <div class="h-full max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
+                            <img
+                                src={secondImage?.image}
+                                alt={secondImage?.title || secondImage?.description}
+                                class="h-full w-full object-cover"
+                            />
+                    </div>
+                {/if}
+            </div>
+        {/if}
     </div>
     
-    <div
-  class=" grid grid-cols-5 gap-0.5 mx-auto justify-center
-  "
->
-  {#each [...images, ...images] as image}
-    <div class="w-full" style="aspect-ratio: {aspectRatio}">
-      <img
-        src={image.image}
-        alt={image.title || image.description}
-        class="w-full h-full object-cover"
-      />
+    <div class=" grid grid-cols-5 gap-0.5 mx-auto justify-center" >
+        {#each [...images, ...images] as image}
+            <div class="w-full" style="aspect-ratio: {aspectRatio}">
+                <img
+                    src={image.image}
+                    alt={image.title || image.description}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        {/each}
     </div>
-  {/each}
-</div>
-
 </section>
-
-
 
 <style>
     section {
