@@ -11,16 +11,16 @@
     const aspectRatio = 435 / 500; 
 </script>
 
-<section class="section p-2 sm:p-4 w-fit flex flex-col items-center gap-4 border border-neutral-400 rounded-lg">
+<section class="section p-2 sm:p-4 w-fit flex flex-col items-center gap-4 border border-neutral-400 rounded-lg bg-gray-100">
     <div class="title-content w-full items-center justify-between flex flex-row gap-1 border-b-3 border-b-neutral-500 pb-2">
         <div class="text-content items-center justify-start flex flex-row gap-1">
             <div class="date">
-                <h2 class='text-[#555] text-[72px]'>{formattedDate.day}</h2>
+                <h2 class='text-[#555] text-[54px] sm:text-[72px]'>{formattedDate.day}</h2>
             </div>
 
             <div class="details">
-                <h3 class='uppercase text-[#555] text-[28px] font-semibold'>{formattedDate.month}</h3>
-                <h3 class='uppercase text-[#686868] text-[28px]'>{formattedDate.weekday}</h3>
+                <h3 class='uppercase text-[#555] text-[20px] sm:text-[28px] font-semibold'>{formattedDate.month}</h3>
+                <h3 class='uppercase text-[#686868] text-[20px] sm:text-[28px]'>{formattedDate.weekday}</h3>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             {@const firstImage = images[Math.floor(Math.random() * images.length)]}
             {@const secondImage = images[Math.floor(Math.random() * images.length)]}
             <div class="random-images h-full flex flex-row gap-1.5">
-                <div class="h-full max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
+                <div class="h-full max-h-20 sm:max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
                         <img
                             src={firstImage?.image}
                             alt={firstImage?.title || firstImage?.description}
@@ -37,7 +37,7 @@
                 </div>
 
                 {#if firstImage !== secondImage }
-                    <div class="h-full max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
+                    <div class="h-full max-h-20 sm:max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
                             <img
                                 src={secondImage?.image}
                                 alt={secondImage?.title || secondImage?.description}
