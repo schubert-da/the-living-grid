@@ -1,11 +1,10 @@
 {
-	"name": "japan-grid",
+	"name": "the-living-grid",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev --host",
-		"prebuild": "node scripts/optimise-images.js",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",

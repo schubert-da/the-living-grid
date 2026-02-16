@@ -2,6 +2,7 @@
     import { chosenTag } from "$lib/utils/stores";
     import { aspectRatio, weightedChoice } from "$lib/utils/utils";
 	import { onMount } from "svelte";
+    import { base } from "$app/paths";
 
     export let image = null
     export let index = null;
@@ -16,7 +17,7 @@
     <div class="w-full" style="aspect-ratio: {aspectRatio}">
         <img
             class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
-            src={image.image}
+            src={base + image.image}
             alt={image.title || image.description}
             class="w-full h-full object-cover"
         />

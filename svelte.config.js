@@ -21,8 +21,7 @@ const config = {
         }),
 
         paths: {
-            base: dev ? '' : '/the-living-grid',
-            assets: dev ? '' : '/the-living-grid'
+            base: dev ? '' : '/the-living-grid'
         }
     }
 };

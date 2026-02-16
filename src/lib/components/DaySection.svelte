@@ -2,6 +2,7 @@
     import { chosenTag } from "$lib/utils/stores.js";
     import { dailyRandom, aspectRatio, cardLayouts } from "$lib/utils/utils";
 	import { onMount } from "svelte";
+    import { base } from "$app/paths";
 	import ImageCard from "./ImageCard.svelte";
 
     export let images = [];
@@ -43,7 +44,7 @@
             <div class="random-images h-full flex flex-row gap-1.5">
                 <div class="h-full max-h-20 sm:max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
                         <img
-                            src={firstImage?.image}
+                            src={base + firstImage?.image}
                             alt={firstImage?.title || firstImage?.description}
                             class="h-full w-full object-cover"
                         />
@@ -52,7 +53,7 @@
                 {#if firstImage !== secondImage }
                     <div class="h-full max-h-20 sm:max-h-25 border-2 rounded-lg border-neutral-500" style="aspect-ratio: {aspectRatio}">
                             <img
-                                src={secondImage?.image}
+                                src={base + secondImage?.image}
                                 alt={secondImage?.title || secondImage?.description}
                                 class="h-full w-full object-cover"
                             />

@@ -1,3 +1,5 @@
+export const prerender = true;
+
 export async function load() {
     const modules = import.meta.glob(
         '/src/content/image-gallery/*.json',
