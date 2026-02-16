@@ -33,7 +33,7 @@ export const palette = [
 
 export const aspectRatio = 435 / 500;
 
-export const cardLayouts = ["regular", "regular-text", 'swoosh', 'journal', 'ticket']
+export const cardLayouts = ["regular", "regular-text", 'swoosh'];
 
 function mulberry32(seed) {
     return function () {
