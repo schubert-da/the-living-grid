@@ -14,14 +14,14 @@
         const width = 100;
         const height = 20;
 
-        const rand = (r) => Math.random() * r;
+        const rand = (r) => dailyRandom(new Date(image.date), `rand-${index}`) * r;
 
         // baseline
         const baseY = height / 2;
 
         // force a small slope
         const slope = rand(3) + 0.5; // never zero
-        const direction = Math.random() < 0.5 ? -1 : 1;
+        const direction = dailyRandom(new Date(image.date), `direction-${index}`) < 0.5 ? -1 : 1;
 
         const yStart = baseY + slope * direction;
         const yEnd   = baseY - slope * direction;
@@ -53,20 +53,23 @@
             class="w-full h-full object-cover rounded border border-neutral-400"
             loading="lazy"
         />
-        
-        {#if (chosenLayout === 'regular') && randomValue < 0.4}
-            <div class="title-card absolute bottom-0.5 left-1/2 -translate-x-1/2 flex items-center justify-center bg-neutral-800 max-w-[80%] overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 rounded border border-neutral-500">
-                <span class='whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-[8px] sm:text-[13px] text-white leading-none'>{image.title}</span>
-            </div>
 
-            {:else if chosenLayout === 'regular-text'}
+        {#if chosenLayout === 'regular-text'}
             <div
                 class="text-content absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-100 w-full flex flex-col items-start gap-0.5 rounded p-1.5 py-0.5">
-                <div class="text-[12px] font-semibold">{image.title}</div>
-                <p class="text-[12px]">{image?.description}</p>
+                <!-- <div class="text-[12px] font-semibold">{image.title}</div> -->
+                <p class="text-[8px] sm:text-[12px]">{image?.description}</p>
             </div>
+        {/if}
+        
+        {#if (chosenLayout === 'regular' || chosenLayout === 'swoosh') && randomValue < 0.75}
+            <div 
+                class="title-card absolute bottom-0.5 left-1/2 -translate-x-1/2 flex items-center justify-center bg-neutral-800 max-w-[80%] overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 rounded border border-neutral-500">
+                <span class='whitespace-nowrap z-20 overflow-hidden text-ellipsis w-full max-w-full text-[8px] sm:text-[13px] text-white leading-none'>{image.title}</span>
+            </div>
+        {/if}
 
-            {:else if chosenLayout === 'swoosh'}
+        {#if chosenLayout === 'swoosh'}
             {@const path = getCurvedPath()}
             <svg class='absolute top-0 left-1.5' width="calc(100% - 11.5px)" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path class='overlay' d={path} stroke="oklch(55.6% 0 0)" fill="transparent" stroke-width="1"/>
