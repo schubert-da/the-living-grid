@@ -1,6 +1,7 @@
 <script>
     import { chosenTag } from "$lib/utils/stores";
     import { aspectRatio, weightedChoice, dailyRandom } from "$lib/utils/utils";
+    import noiseImage from "$lib/assets/noise.jpeg";
 	import { onMount } from "svelte";
     import { base } from "$app/paths";
 
@@ -41,18 +42,28 @@
 
         return d;
     }
+
+    const presets = ["filter-a", "filter-b", "filter-c", "filter-d"];
+    $: presetRandom = image?.date ? dailyRandom(new Date(image.date), `preset-${index}`) : 0;
+    $: preset = presetRandom > 0.5
+    ? presets[Math.floor(((presetRandom - 0.5) / 0.5) * presets.length)]
+    : null;
 </script>
 
 {#if image && chosenLayout}
     {@const randomValue = dailyRandom(new Date(image.date), `image-${index}`)}
-    <div class="image-card card-{chosenLayout} relative overflow-hidden w-full p-1.5 border border-neutral-400 rounded" style="aspect-ratio: {aspectRatio}">
-        <img
-            class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
-            src={base + image.image}
-            alt={image.title || image.description}
-            class="w-full h-full object-cover rounded border border-neutral-400"
-            loading="lazy"
-        />
+    <div 
+        style:--noise-url={`url(${noiseImage})`}
+    class="image-card card-{chosenLayout} relative overflow-hidden w-full p-1.5 border border-neutral-400 rounded" style="aspect-ratio: {aspectRatio}">
+        <figure class='relative {preset} w-full h-full object-cover rounded'>   
+            <img
+                class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
+                src={base + image.image}
+                alt={image.title || image.description}
+                class="relative w-full h-full object-cover rounded border border-neutral-400"
+                loading="lazy"
+            />
+        </figure>
 
         {#if chosenLayout === 'regular-text'}
             <div
@@ -88,4 +99,119 @@
         filter: grayscale(100%) opacity(50%);
         transition: filter 0.3s ease;
     }
+
+    .image-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--noise-url) repeat;
+        opacity: 0.20;
+        mix-blend-mode: multiply;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .filter-a {
+    position: relative;
+    -webkit-filter: contrast(85%) brightness(110%) saturate(75%) sepia(22%);
+    filter: contrast(85%) brightness(110%) saturate(75%) sepia(22%);
+    }
+
+    .filter-a::before {
+    content: "";
+
+    z-index: 1;    
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+    background: rgba(173, 205, 239, 1);
+    }
+
+    .filter-b {
+    position: relative;
+    -webkit-filter: sepia(30%);
+    filter: sepia(30%);
+    }
+
+    .filter-b::before {
+    content: "";
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: color-burn;
+    background: -webkit-radial-gradient(50% 50%, circle closest-corner, rgba(224, 231, 230, 1) 40, rgba(43, 42, 161, 0.6));
+    background: radial-gradient(50% 50%, circle closest-corner, rgba(224, 231, 230, 1) 40, rgba(43, 42, 161, 0.6));
+    }
+
+    .filter-c {
+    position: relative;
+    -webkit-filter: contrast(150%) brightness(90%);
+    filter: contrast(150%) brightness(90%);
+    }
+
+.filter-c::before {
+    content: "";
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    background: -webkit-radial-gradient(50% 50%, circle closest-corner, rgba(15, 78, 128, 1) 1, rgba(59, 0, 59, 1));
+    background: radial-gradient(50% 50%, circle closest-corner, rgba(15, 78, 128, 1) 1, rgba(59, 0, 59, 1));
+}
+
+.filter-d {
+  position: relative;
+  -webkit-filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg);
+  filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg);
+}
+.filter-d::before {
+  content: "";
+  z-index: 1;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  background: rgba(204, 68, 0, 1);
+}
+
+.filter-e {
+  position: relative;
+  -webkit-filter: contrast(140%) sepia(50%);
+  filter: contrast(140%) sepia(50%);
+}
+.filter-e::before {
+  content: "";
+  z-index: 1;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  background: rgba(161, 44, 199, 0.31);
+}
 </style>
