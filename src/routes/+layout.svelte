@@ -25,7 +25,7 @@
 {@render children()}
 
 <div class="filters-bottom-bar w-fit max-w-full fixed -bottom-1 left-1/2 -translate-x-1/2 bg-gray-100 px-5 py-3 flex flex-row items-center gap-4 rounded-t-lg overflow-x-auto border border-neutral-400 z-50">
-	<span class="label leading-none text-lg">Filter by</span>
+	<span class="label leading-none text-base sm:text-lg whitespace-nowrap">Filter by</span>
 
 	<div class="tags-list">
 			<div class="tags-filters flex flex-row items-center gap-2">

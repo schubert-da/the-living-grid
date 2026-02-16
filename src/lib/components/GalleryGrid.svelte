@@ -42,7 +42,7 @@
     {/each}
 </div>
 
-<div class="grid-container w-full flex justify-center">
+<div class="grid-container w-full flex flex-col gap-5 items-center justify-center">
     {#each uploadeDates as date}
         {@const currentImages = images.filter(image => image.date.split("T")[0] === date)}
         <DaySection images={currentImages} />

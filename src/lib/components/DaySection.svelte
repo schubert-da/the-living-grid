@@ -63,7 +63,7 @@
         {/if}
     </div>
     
-    <div class=" grid grid-cols-5 gap-0.5 mx-auto justify-center" >
+    <div class=" grid grid-cols-5 gap-1 mx-auto justify-center" >
         {#each [...images] as image, index}
             <ImageCard {image} {index} config={layoutConfig} />
         {/each}
@@ -90,10 +90,5 @@
         .grid {
             grid-template-columns: repeat(3, minmax(0, 1fr))
         }
-    }
-
-    img.not-selected {
-        filter: grayscale(100%) opacity(50%);
-        transition: filter 0.3s ease;
     }
 </style>
