@@ -4,7 +4,7 @@
 
     export let images = [];
 
-    console.log('GalleryGrid images:', images);
+    // console.log('GalleryGrid images:', images);
 
     $: uploadeDates = images.length > 0 ? [...new Set(images.map(image => image.date.split("T")[0]))] : null;
     $: tags = images.length > 0 ? [...new Set(images.flatMap(image => image.tags))] : null;

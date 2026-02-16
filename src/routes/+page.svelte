@@ -2,7 +2,7 @@
 	import GalleryGrid from '$lib/components/GalleryGrid.svelte';
 
     export let data;
-    console.log("data", data);
+    // console.log("data", data);
 </script>
 
 <div class="grid-container flex flex-col items-center gap-5">

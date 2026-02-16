@@ -8,8 +8,6 @@
     export let index = null;
     export let config = null;
 
-    $: console.log("chosenLayout", chosenLayout)
-
     $: chosenLayout = image?.date && Object.keys(config).length && index!==null ?  weightedChoice(new Date(image.date), 'image-' + index, config): null;
 </script>
 
