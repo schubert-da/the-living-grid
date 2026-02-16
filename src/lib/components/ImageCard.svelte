@@ -53,9 +53,11 @@
 {#if image && chosenLayout}
     {@const randomValue = dailyRandom(new Date(image.date), `image-${index}`)}
     <div 
-        style:--noise-url={`url(${noiseImage})`}
-    class="image-card card-{chosenLayout} relative overflow-hidden w-full p-1.5 border border-neutral-400 rounded" style="aspect-ratio: {aspectRatio}">
-        <figure class='relative {preset} w-full h-full object-cover rounded'>   
+        class="image-card card-{chosenLayout} relative overflow-hidden w-full p-1.5 border border-neutral-400 rounded" style="aspect-ratio: {aspectRatio}">
+        <figure
+            style:--noise-url={`url(${noiseImage})`}
+            class='relative {preset} w-full h-full object-cover rounded'
+        >   
             <img
                 class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
                 src={base + image.image}
@@ -67,7 +69,7 @@
 
         {#if chosenLayout === 'regular-text'}
             <div
-                class="text-content absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-100 w-full flex flex-col items-start gap-0.5 rounded p-1.5 py-0.5">
+                class="text-content z-10 absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-100 w-full flex flex-col items-start gap-0.5 rounded p-1.5 py-0.5">
                 <!-- <div class="text-[12px] font-semibold">{image.title}</div> -->
                 <p class="text-[8px] sm:text-[12px]">{image?.description}</p>
             </div>
@@ -100,7 +102,7 @@
         transition: filter 0.3s ease;
     }
 
-    .image-card::after {
+    .image-card figure::after {
         content: "";
         position: absolute;
         inset: 0;
