@@ -45,9 +45,9 @@
 
     const presets = ["filter-a", "filter-b", "filter-c", "filter-d"];
     $: presetRandom = image?.date ? dailyRandom(new Date(image.date), `preset-${index}`) : 0;
-    $: preset = presetRandom > 0.5
-    ? presets[Math.floor(((presetRandom - 0.5) / 0.5) * presets.length)]
-    : null;
+    $: preset = presetRandom > 0.8
+        ? presets[Math.floor(((presetRandom - 0.8) / 0.2) * presets.length)]
+        : null;
 </script>
 
 {#if image && chosenLayout}
@@ -178,8 +178,8 @@
 
 .filter-d {
   position: relative;
-  -webkit-filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg);
-  filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg);
+  /* -webkit-filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg);
+  filter: brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg); */
 }
 .filter-d::before {
   content: "";
