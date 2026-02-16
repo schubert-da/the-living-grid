@@ -32,7 +32,9 @@
 
 <div class="tags-filters flex flex-row items-center gap-2">
     {#each Object.entries($tagCounts).slice(0, 5) as [tag, count]}
-        <button class:selected={$chosenTag === tag} on:click={() => toggleTag(tag)} class="tag-filter whitespace-nowrap cursor-pointer bg-white hover:bg-gray-50 hover:shadow hover:scale-104 transition px-4 py-1.5 rounded-full border border-neutral-500 text-sm flex items-center gap-1">
+        <button class:selected={$chosenTag === tag} on:click={() => toggleTag(tag)} 
+            class="tag-filter whitespace-nowrap cursor-pointer bg-white hover:bg-gray-50 hover:shadow hover:scale-104 transition px-4 py-1.5 rounded-full border border-neutral-500 text-sm flex items-center gap-1"
+        >
             <span class='text-black'>
                 {tag}({count})
             </span>

@@ -31,6 +31,10 @@ export const palette = [
     }
 ]
 
+export const aspectRatio = 435 / 500;
+
+export const cardLayouts = ["regular", "regular-text", 'swoosh', 'journal', 'ticket']
+
 function mulberry32(seed) {
     return function () {
         let t = seed += 0x6D2B79F5;
@@ -51,5 +55,18 @@ function hashString(str) {
 export function dailyRandom(date, key) {
     const baseSeed = new Date(date).getTime() / (1000 * 60 * 60 * 24);
     const seed = baseSeed + hashString(key);
-    return mulberry32(seed)();
+    return +mulberry32(seed)().toFixed(4);
+}
+
+export function weightedChoice(date, key, options) {
+    const r = dailyRandom(date, key);
+    let acc = 0;
+
+    for (const option of options) {
+        acc += option.weight;
+        if (r < acc) return option.value;
+    }
+
+    // Fallback if weights don't sum to 1
+    return options[options.length - 1].value;
 }

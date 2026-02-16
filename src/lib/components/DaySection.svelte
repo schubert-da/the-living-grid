@@ -1,5 +1,8 @@
 <script>
     import { chosenTag } from "$lib/utils/stores.js";
+    import { dailyRandom, aspectRatio, cardLayouts } from "$lib/utils/utils";
+	import { onMount } from "svelte";
+	import ImageCard from "./ImageCard.svelte";
 
     export let images = [];
     
@@ -9,12 +12,20 @@
         month: currentDate.toLocaleString("en-US", { month: "short" }),
         weekday: currentDate.toLocaleString("en-US", { weekday: "long" })
     } : '';
-    
-    const aspectRatio = 435 / 500; 
+
+    $: layoutConfig = {}
+
+    onMount(() => {
+        let currentLayoutConfig = cardLayouts.map( layout => {
+            return {value: layout, weight: dailyRandom(currentDate, `layout-${layout}`)}
+        })
+        currentLayoutConfig.sort((a, b) => a.weight - b.weight);
+        layoutConfig = currentLayoutConfig;
+    });
 </script>
 
 <section class="section p-2 sm:p-4 w-fit flex flex-col items-center gap-4 border border-neutral-400 rounded-lg bg-gray-100">
-    <div class="title-content w-full items-center justify-between flex flex-row gap-1 border-b-3 border-b-neutral-500 pb-2">
+    <div class="title-content w-full items-center justify-between flex flex-row gap-4 border-b-3 border-b-neutral-500 pb-2">
         <div class="text-content items-center justify-start flex flex-row gap-1">
             <div class="date">
                 <h2 class='text-[#555] text-[54px] sm:text-[72px]'>{formattedDate.day}</h2>
@@ -52,15 +63,8 @@
     </div>
     
     <div class=" grid grid-cols-5 gap-0.5 mx-auto justify-center" >
-        {#each [...images, ...images] as image}
-            <div class="w-full" style="aspect-ratio: {aspectRatio}">
-                <img
-                    class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}
-                    src={image.image}
-                    alt={image.title || image.description}
-                    class="w-full h-full object-cover"
-                />
-            </div>
+        {#each [...images] as image, index}
+            <ImageCard {image} {index} config={layoutConfig} />
         {/each}
     </div>
 </section>
