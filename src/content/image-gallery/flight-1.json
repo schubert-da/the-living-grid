@@ -1,0 +1,12 @@
+{
+  "title": "Flight 1",
+  "description": "GOI - BOM",
+  "image": [
+    "/media/1000093507.webp"
+  ],
+  "location": "Mumbai",
+  "date": "2026-02-17T08:23:00.000Z",
+  "tags": [
+    "transit"
+  ]
+}
