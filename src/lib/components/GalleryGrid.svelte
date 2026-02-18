@@ -43,7 +43,7 @@
 </div>
 
 <div class="grid-container w-full flex flex-col gap-5 items-center justify-center">
-    {#each uploadeDates as date}
+    {#each [...uploadeDates].sort((a, b) => new Date(a) - new Date(b)) as date}
         {@const currentImages = images.filter(image => image.date.split("T")[0] === date)}
         <DaySection images={currentImages} />
     {/each}
