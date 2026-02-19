@@ -1,6 +1,10 @@
 {
   "title": "Mononoke village",
   "description": "Mononoke village",
+  "image": [
+    "/media/1000093813.webp",
+    "/media/1000093809.webp"
+  ],
   "location": "Nagoya",
   "date": "2026-02-19T23:14:00.000Z",
   "tags": [
