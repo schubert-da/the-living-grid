@@ -1,0 +1,15 @@
+{
+  "title": "Carousel",
+  "description": "Last thing we saw before leaving",
+  "image": [
+    "/media/1000093874.webp",
+    "/media/1000093876.webp"
+  ],
+  "location": "Nagoya",
+  "date": "2026-02-19T23:25:00.000Z",
+  "tags": [
+    "nagoya",
+    "ghibli park",
+    "attraction"
+  ]
+}
