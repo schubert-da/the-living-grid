@@ -1,0 +1,14 @@
+{
+  "title": "Ghibli elevator",
+  "description": "The lift near the Ghibli park entrance",
+  "image": [
+    "/media/1000093801.webp",
+    "/media/1000093853.webp"
+  ],
+  "location": "Nagoya",
+  "date": "2026-02-19T08:08:00.000Z",
+  "tags": [
+    "attraction",
+    "ghibli park"
+  ]
+}
