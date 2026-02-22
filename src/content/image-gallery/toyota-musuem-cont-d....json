@@ -1,0 +1,17 @@
+{
+  "title": "Toyota musuem cont'd...",
+  "description": "All the cars",
+  "image": [
+    "/media/1000094055.webp",
+    "/media/1000094056.webp",
+    "/media/1000094054.webp",
+    "/media/1000094046.webp",
+    "/media/1000094043.webp"
+  ],
+  "location": "Nagoya",
+  "date": "2026-02-20T01:52:00.000Z",
+  "tags": [
+    "nagoya",
+    "attraction"
+  ]
+}
