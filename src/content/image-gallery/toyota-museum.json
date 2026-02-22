@@ -1,0 +1,17 @@
+{
+  "title": "Toyota museum",
+  "description": "More than just cars apparently...",
+  "image": [
+    "/media/1000094031.webp",
+    "/media/1000094071.webp",
+    "/media/1000094074.webp",
+    "/media/1000094076.webp",
+    "/media/1000094077.webp"
+  ],
+  "location": "Nagoya",
+  "date": "2026-02-20T01:48:00.000Z",
+  "tags": [
+    "nagoya",
+    "attraction"
+  ]
+}
