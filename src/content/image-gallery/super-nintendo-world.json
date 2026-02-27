@@ -1,6 +1,11 @@
 {
   "title": "Super Nintendo World",
   "description": "Wasn't going to deal with 3 hrs+ waiting lines",
+  "image": [
+    "/media/1000094777.webp",
+    "/media/1000094794.webp",
+    "/media/1000094792.webp"
+  ],
   "location": "Osaka",
   "date": "2026-02-23T20:24:00.000Z",
   "tags": [
