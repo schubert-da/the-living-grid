@@ -1,0 +1,18 @@
+{
+  "title": "Harry Potter",
+  "description": "Hogwarts Alley",
+  "image": [
+    "/media/1000094840.webp",
+    "/media/1000094839.webp",
+    "/media/1000094854.webp",
+    "/media/1000094847.webp"
+  ],
+  "location": "Osaka",
+  "date": "2026-02-23T20:30:00.000Z",
+  "tags": [
+    "universal studios",
+    "attraction",
+    "osaka",
+    "harry potter"
+  ]
+}
