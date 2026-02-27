@@ -1,0 +1,16 @@
+{
+  "title": "Random shopping",
+  "description": "Browsing around Bic Camera and Don Quixote",
+  "image": [
+    "/media/1000095289.webp",
+    "/media/1000095311.webp"
+  ],
+  "location": "Tokyo",
+  "date": "2026-02-24T02:25:00.000Z",
+  "tags": [
+    "tokyo",
+    "shibuya",
+    "shopping",
+    "food"
+  ]
+}
