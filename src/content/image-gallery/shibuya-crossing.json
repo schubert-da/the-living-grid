@@ -1,0 +1,16 @@
+{
+  "title": "Shibuya crossing",
+  "description": "Seemed like just another crosswalk",
+  "image": [
+    "/media/1000095287.webp",
+    "/media/1000095285.webp"
+  ],
+  "location": "Tokyo",
+  "date": "2026-02-24T01:34:00.000Z",
+  "tags": [
+    "transit",
+    "attraction",
+    "shibuya",
+    "tokyo"
+  ]
+}
