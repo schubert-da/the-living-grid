@@ -1,0 +1,17 @@
+{
+  "title": "Diner",
+  "description": "Way too crowded though...",
+  "image": [
+    "/media/1000094751.webp",
+    "/media/1000094762.webp",
+    "/media/1000094750.webp"
+  ],
+  "location": "Osaka",
+  "date": "2026-02-23T10:49:00.000Z",
+  "tags": [
+    "cars",
+    "osaka",
+    "universal studios",
+    "attraction"
+  ]
+}
