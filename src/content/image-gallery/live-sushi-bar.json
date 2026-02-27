@@ -1,0 +1,16 @@
+{
+  "title": "Live Sushi bar",
+  "description": "",
+  "image": [
+    "/media/1000094901.webp",
+    "/media/1000094899.webp",
+    "/media/1000094897.webp",
+    "/media/1000094900.webp"
+  ],
+  "location": "Osaka",
+  "date": "2026-02-23T20:41:00.000Z",
+  "tags": [
+    "food",
+    "osaka"
+  ]
+}
