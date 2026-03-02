@@ -1,0 +1,19 @@
+{
+  "title": "Airport stamps",
+  "description": "Haneda and Chubu airport transit",
+  "image": [
+    "/media/1000096205.webp",
+    "/media/1000096206.webp",
+    "/media/1000096207.webp"
+  ],
+  "location": "Nagoya",
+  "date": "2026-02-18T23:20:00.000Z",
+  "tags": [
+    "stamps",
+    "transit",
+    "airport",
+    "station",
+    "tokyo",
+    "nagoya"
+  ]
+}
