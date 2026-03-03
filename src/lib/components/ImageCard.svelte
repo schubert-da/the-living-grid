@@ -107,7 +107,7 @@
         position: absolute;
         inset: 0;
         background: var(--noise-url) repeat;
-        opacity: 0.20;
+        opacity: 0.12;
         mix-blend-mode: multiply;
         z-index: 2;
         pointer-events: none;
