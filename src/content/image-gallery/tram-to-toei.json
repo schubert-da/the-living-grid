@@ -1,15 +1,17 @@
 {
   "title": "Tram to Toei",
-  "description": "This started as us misreading the transportation mode but pleasantly surprised....",
+  "description": "We misread the transportation mode but were pleasantly surprised",
   "image": [
     "/media/1000094220.webp",
     "/media/1000094219.webp",
     "/media/1000094221.webp"
   ],
   "location": "Kyoto",
-  "date": "2026-02-21T02:04:00.000Z",
+  "date": "2026-02-21T09:05:00.000Z",
   "tags": [
     "kyoto",
-    "transit"
+    "transit",
+    "station",
+    "tram"
   ]
 }
