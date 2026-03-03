@@ -58,7 +58,7 @@
         class="image-card card-{chosenLayout} relative overflow-hidden w-full p-1.5 border border-neutral-400 rounded" style="aspect-ratio: {aspectRatio}">
         <figure
             style:--noise-url={`url(${noiseImage})`}
-            class='relative {preset} w-full h-full object-cover rounded'
+            class='relative {preset} w-full h-full object-cover rounded {image.tags.map( t => `tag-${t.replaceAll(" ", "-")}`).join(" ")}'
         >   
             <img
                 class:not-selected={$chosenTag && !image?.tags.includes($chosenTag)}

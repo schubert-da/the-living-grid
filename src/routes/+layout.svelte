@@ -12,6 +12,16 @@
             chosenTag.set(tag);
         }
     }
+
+	$effect(() => {
+		if($chosenTag) {
+			const element = document.querySelector(`.tag-${$chosenTag.replaceAll(" ", "-")}`);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+		}
+	});
+	
 </script>
 
 
