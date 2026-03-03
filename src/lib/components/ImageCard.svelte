@@ -30,13 +30,15 @@
         // gentle one-direction curve
         const curve = rand(2);
 
-        // control points stay on one side of the whole segment
-        const arcSide = Math.min(yStart, yEnd) - curve;
+        const conrolPointsDirection = dailyRandom(new Date(image.date), `control-direction-${index}`);
+        // control points on either side of the segment
+        const arcSide1 = Math.min(yStart, yEnd) - curve;
+        const arcSide2 = conrolPointsDirection < 0.75 ? Math.max(yStart, yEnd) + curve : arcSide1;
 
         const d = `
         M 0 ${yStart}
-        C ${width * 0.33} ${arcSide},
-            ${width * 0.66} ${arcSide},
+        C ${width * 0.33} ${arcSide1},
+            ${width * 0.66} ${arcSide2},
             ${width} ${yEnd}
         `;
 
@@ -85,8 +87,8 @@
         {#if chosenLayout === 'swoosh'}
             {@const path = getCurvedPath()}
             <svg class='absolute top-0 left-1.5' width="calc(100% - 11.5px)" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path class='overlay' d={path} stroke="oklch(55.6% 0 0)" fill="transparent" stroke-width="1"/>
-                <path class='base' d={path} stroke="white" fill="transparent" stroke-width="0.85"/>
+                <path class='overlay' d={path} stroke="oklch(55.6% 0 0)" fill="transparent" stroke-width="0.7"/>
+                <path class='base' d={path} stroke="white" fill="transparent" stroke-width="0.65"/>
             </svg>
         {/if}
     </div>
